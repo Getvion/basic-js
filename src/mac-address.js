@@ -20,7 +20,12 @@ function isMAC48Address(n) {
   const arr = str.split('');
   const allow = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
 
-  arr.map((item) => (!allow.includes(item) ? false : true));
+  for (let i = 0; i < arr.length; i++) {
+    if (!allow.includes(arr[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 module.exports = {
   isMAC48Address,
